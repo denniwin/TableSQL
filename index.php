@@ -69,22 +69,17 @@
       </nav>
 
 <div class="container-fluid">
+  <h1>Участники системы</h1>
+  <table class="table table-responsive table-striped table-hover"><thead><tr>
+  <th scope="col">#</th><th scope="col">Имя</th><th scope="col">Фамилия</th><th scope="col">Обращение</th><th scope="col">Ссылка</th></tr></thead><tbody>
+    
 <?php
-require ($_SERVER["DOCUMENT_ROOT"]."/conf/db.php");
-
-
-$sql = 'SELECT * FROM cardcode WHERE id > 1';
-$resultSql = mysqli_query($link, $sql);
-$result = [];
-echo '<h1>Участники системы</h1>';
-echo '<table class="table table-responsive table-striped table-hover"><thead><tr>';
-echo '<th scope="col">#</th><th scope="col">Имя</th><th scope="col">Фамилия</th><th scope="col">Обращение</th><th scope="col">Ссылка</th></tr></thead><tbody>';
+require ($_SERVER["DOCUMENT_ROOT"]."/conf/table.php");
 while ($row = mysqli_fetch_array($resultSql)) {
     echo('<tr><th scope="row">' . $row['id'] . '</th><td>' . $row['login'] . '</td><td>' . $row['loginsec'] . '</td><td>' . $row['message'] . '</td><td><a href="#">Тап</a></td></tr>');
 }
-echo '</tbody></table></div>';
 ?>
-
+</tbody></table></div>
       <script src="js/main.js"></script>
       <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
